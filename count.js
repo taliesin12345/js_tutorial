@@ -1,0 +1,29 @@
+const sonnet = `Let me not to the marriage of true minds
+                Admit impediments. Love is not love
+                Which alters when it alteration finds,
+                Or bends with the remover to remove:
+                O, no! it is an ever-fixed mark,
+                That looks on tempests and is never shaken;
+                It is the star to every wandering bark,
+                Whose worth's unknown, although his height be taken.
+                Love's not Time's fool, though rosy lips and cheeks
+                Within his bending sickle's compass come;
+                Love alters not with his brief hours and weeks,
+                But bears it out even to the edge of doom.
+                  If this be error and upon me prov'd,
+                  I never writ, nor no man ever lov'd.`;
+// To split into an array of unique words.
+// First, create an empty object that will be the unique words container:
+let uniques = {};
+// This creates an array with all the separate words in the text, repeat included. (The RegEx matches all separate instances of letters and numbers (i.e. words). '+' means 'one or more [letter]'. 'g' is the Global flag [necessary to create the array]).
+let words = sonnet.match(/\w+/g);
+// Iterates through the array 'words' and builds up an associative array of unique words, incrementing their count whenever they repeat.
+for (let i = 0; i < words.length; i++) {
+  let word = words[i];
+  if (uniques[word]) {
+    uniques[word] += 1;
+  } else {
+    uniques[word] = 1;
+  }
+}
+console.log(uniques);
