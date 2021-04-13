@@ -104,13 +104,3 @@ function functionalProduct(elements) {
   return elements.reduce((total, n) => { return total *= n; });
 }
 console.log(functionalProduct(numbers));
-
-
-
-
-
-
-
-
-
-blah
