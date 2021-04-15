@@ -37,6 +37,6 @@ urllib.request(url, { followRedirect: true }, function (error, data, response) {
   });
 
   // Redirects all the paragraphs in a text file.
-  // let paragraphsOutput = paragraphs.join("\n");
-  fs.writeFileSync("article.txt", paragraphsOutput);
+  let paragraphsOutputProcessed = paragraphsOutput.join("\n");
+  fs.writeFileSync("article.txt", paragraphsOutputProcessed);
 });
