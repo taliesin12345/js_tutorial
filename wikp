@@ -3,10 +3,14 @@
 // Returns the paragraphs from a Wikipedia link, stripped of reference numbers.
 
 let urllib = require("urllib");
+// To run the script from anywhere, it needs instead an absolute path:
+// let urllib = require("/../../usr/local/lib/node_modules/urllib");
 let url = process.argv[2];
 let fs = require("fs");
 
 const jsdom = require("jsdom");
+// To run the script from anywhere, it needs instead an absolute path:
+// const jsdom = require("/../../usr/local/lib/node_modules/jsdom");
 const { JSDOM } = jsdom;
 
 // If the URL is missing, exit the script.
