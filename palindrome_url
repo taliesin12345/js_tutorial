@@ -1,0 +1,17 @@
+#!/usr/bin/node
+
+let urllib = require('urllib');
+// Se si preferisce usare 'urllib' installato globalmente, qui è necessario inserire il Path completo alla versione non-locale:
+// let urllib = require('../../../../usr/local/lib/node_modules/urllib');
+let Phrase = require("my-palindrome");
+let url = 'https://cdn.learnenough.com/phrases.txt'
+
+urllib.request(url, { followRedirect: true }, function (error, data, response) {
+  let body = data.toString();
+  let lines = body.split("\n");
+  // Selects only the lines that are palindromes (avoids processing useless data):
+  let palindromes = lines.filter(line => line = new Phrase(line).palindrome());
+  palindromes.forEach(function(palindrome) {
+    console.log("palindrome detected:", palindrome);
+  });
+});

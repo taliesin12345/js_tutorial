@@ -1,0 +1,16 @@
+#!/usr/bin/node
+
+let fs = require("fs");
+let Phrase = require("my-palindrome");
+
+let text = fs.readFileSync("phrases.txt", "utf-8");
+let fileOutput = [];
+text.split("\n").forEach(function(line) {
+  let phrase = new Phrase(line);
+  if (phrase.palindrome()) {
+    console.log("palindrome detected:", line);
+    fileOutput.push(line);
+  }
+});
+let fileOutputProcessed = fileOutput.join("\n") + "\n";
+fs.writeFileSync("palindromes.txt", fileOutputProcessed);
